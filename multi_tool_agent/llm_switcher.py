@@ -146,19 +146,19 @@ try:
 except Exception as e:
     print(f"❌ Could not create or run Claude agent '{llm_option_claude}'. Check API Key and model name. Error: {e}")
 
-async def run_conversation():
-    await call_agent_async(query = "What's the weather in Tokyo?",
-                           runner=runner_gpt,
-                           user_id=USER_ID_GPT,
-                           session_id=SESSION_ID_GPT)
+# async def run_conversation():
+#     await call_agent_async(query = "What's the weather in Tokyo?",
+#                            runner=runner_gpt,
+#                            user_id=USER_ID_GPT,
+#                            session_id=SESSION_ID_GPT)
     
-    await call_agent_async(query = "Weather in London please.",
-                           runner=runner_claude,
-                           user_id=USER_ID_CLAUDE,
-                           session_id=SESSION_ID_CLAUDE)
+#     await call_agent_async(query = "Weather in London please.",
+#                            runner=runner_claude,
+#                            user_id=USER_ID_CLAUDE,
+#                            session_id=SESSION_ID_CLAUDE)
 
-if __name__ == "__main__":
-        try:
-            asyncio.run(run_conversation())
-        except Exception as e:
-            print(f"An error occurred: {e}")
+# if __name__ == "__main__":
+#         try:
+#             asyncio.run(run_conversation())
+#         except Exception as e:
+#             print(f"An error occurred: {e}")

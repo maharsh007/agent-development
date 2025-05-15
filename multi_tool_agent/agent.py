@@ -1,6 +1,9 @@
 from google.adk.agents import Agent
 from .sub_agent import greeting_agent, farewell_agent, llm_option
 from .prompts import GLOBAL_INSTRUCTION, INSTRUCTION
+from .tools.search import google_search_grounding
+
+
 from .shared_libraries.callbacks import (
     rate_limit_callback,
     before_agent,
@@ -35,6 +38,7 @@ runner_root_stateful = None # Initialize runner
     # Let's use a capable Gemini model for the root agent to handle orchestration
 root_agent_model = llm_option
 
+
 root_agent = Agent(
     name="Customer_agent", # Give it a new version name
     model=root_agent_model,
@@ -53,6 +57,7 @@ root_agent = Agent(
         get_available_planting_times,
         send_care_instructions,
         generate_qr_code,
+        google_search_grounding
     ], # Root agent still needs the weather tool for its core task
     # Key change: Link the sub-agents here!
     sub_agents=[greeting_agent, farewell_agent],
